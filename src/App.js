@@ -17,11 +17,14 @@ export default function App() {
         </div>
 
         <div className="bio">
-        I am farza and I worked on self-driving cars so that's pretty cool right? Connect your Ethereum wallet and wave at me!
+        This is the page to vote, tell others whether you agree or not by the emoji below!
         </div>
 
         <button className="waveButton" onClick={wave}>
-          Wave at Me
+          😁
+        </button>
+        <button className="waveButton" onClick={wave}>
+          💩
         </button>
       </div>
     </div>
