@@ -8,6 +8,7 @@ const App = () => {
   * Just a state variable we use to store our user's public wallet.
   */
   const [currentAccount, setCurrentAccount] = useState("");
+  const [msg, setMsg] = useState("");
   const [allWaves, setAllWaves] = useState([]);
   const contractAddress = "0xfa21eA37Daa76BB1c33FaBebAF89d246e915178F";
   const contractABI = abi.abi
@@ -77,7 +78,7 @@ const App = () => {
         /*
         * Execute the actual wave from your smart contract
         */
-        const waveTxn = await wavePortalContract.wave("hello");
+        const waveTxn = await wavePortalContract.wave(msg);
         console.log("Mining...", waveTxn.hash);
 
         await waveTxn.wait();
@@ -149,6 +150,11 @@ const App = () => {
         <div className="bio">
           This is my first wave website!
         </div>
+
+        <input
+            type="text"
+            onChange={event => setMsg(event.target.value)}
+         />
     
         <button className="waveButton" onClick={wave}>
           Wave at Me
